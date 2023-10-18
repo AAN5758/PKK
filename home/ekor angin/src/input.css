@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.poppin {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* style untuk scroll bar */
+::-moz-selection {
+    color: #fff;
+    background: #775f32;
+}
+
+::selection {
+    color: #fff;
+    background: #775f32;
+}
+
+/* scroll bar */
+::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(222, 192, 150);
+    border-radius: 3px;
+    background-color: rgb(231, 207, 181);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(222, 136, 55);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(222, 136, 55);
+}
+
+
+.bg1 {
+    background: rgb(0, 147, 233);
+    background: linear-gradient(156deg, rgba(0, 147, 233, 1) 0%, rgba(128, 208, 199, 1) 93%);
+}
+
+.bg2 {
+    background: rgb(139, 198, 236);
+    background: linear-gradient(32deg, rgba(139, 198, 236, 1) 0%, rgba(149, 153, 226, 1) 100%);
+}
+
+.menu-toggle {
+    position: absolute;
+}
+
+nav ul {
+    background-color: rgb(249, 249, 249);
+    color: #324054;
+    height: 100vh;
+    position: absolute;
+    width: 300px;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+}
+
+nav ul.slide {
+    transform: translateX(0%);
+}

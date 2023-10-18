@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Desain baru</title>
+</head>
+
+<body>
+    <nav>
+        <iconify-icon onclick="window.history.back()" icon="ep:back"></iconify-icon>
+        <div style="margin: 0% 20px; text-align: center; width: 100%; ">Member Task</div>
+    </nav>
+
+    <div class="bg">
+        <div style="font-weight: bold; ">High-fidelityt design</div>
+
+        <div style="color: #8e8e8e; margin-top: 20px;">Members</div>
+        <div style="display: flex; margin-top: 10px;">
+            <div class="profile2"></div>
+            <div class="profile"></div>
+        </div>
+
+    </div>
+
+    <div class="bg">
+        <div>Description</div>
+        <div style="margin:20px 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nulla
+            deleniti repellat expedita, enim
+            adipisci! Deleniti sed enim, ullam dicta quisquam harum commodi vel nihil obcaecati omnis, ab dolorum? Quas.
+        </div>
+        <a style="color: black; " href="#">Show full description</a>
+    </div>
+
+
+
+
+    <div class="bg" id="attachments">
+        <div style="display: flex; ">
+            <div class="menu" style="margin: 0 10px;">Attachments</div>
+            <div class="menu" style="margin: 0 10px;" onclick="AttachmentInput()">Add attachment</div>
+        </div>
+        <div class="Attachments">
+            <div style="background-image: url(figma.png);" class="img"></div>
+            <div style="margin-left: 10px;">
+                <div style="font-size: 0.9rem;">Hospital-app.fig</div>
+                <div style="color: #8e8e8e ; font-size: 0.8rem;">Added May 8 at 11:30PM</div>
+                <div>
+                    <iconify-icon class="icon" icon="octicon:comment-16" flip="horizontal"></iconify-icon>
+                    <iconify-icon class="icon" icon="bi:trash"></iconify-icon>
+                    <iconify-icon class="icon" icon="uil:pen"></iconify-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="Attachments">
+            <div style="background-image: url(hp.jpg);" class="img"></div>
+            <div style="margin-left: 10px;">
+                <div style="font-size: 0.9rem;">Thumbnail.png</div>
+                <div style="color: #8e8e8e; font-size: 0.8rem;">Added May 8 at 11:30PM</div>
+                <div>
+                    <iconify-icon class="icon" icon="octicon:comment-16" flip="horizontal"></iconify-icon>
+                    <iconify-icon class="icon" icon="bi:trash"></iconify-icon>
+                    <iconify-icon class="icon" icon="uil:pen"></iconify-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg">
+        <div>Activity</div>
+        <div style="display: flex; align-items: center; margin-top: 15px;">
+            <div class="profile"></div>
+            <input type="text" class="input" placeholder="Write a comment">
+        </div>
+        <div style="width: 100%; height: 2px; background: rgb(239, 239, 239); margin-top: 20px;"></div>
+        <div style="display: flex; align-items: center; margin-top: 15px;">
+            <div class="profile"></div>
+            <div style="margin-left: 10px; font-size: 0.98rem;">Cristina</div>
+            <div style="font-size: 0.8rem; margin-left: 7px; color: #8e8e8e;">May 8 at 11:41 PM</div>
+        </div>
+        <div
+            style="background: rgb(221, 220, 220); padding: 10px; border-radius: 1rem; margin: 15px 0px; font-size: 0.8rem;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis eos architecto voluptas itaque similique
+            autem necessitatibus, rerum reprehenderit voluptates est, consequuntur quod ullam officia, deleniti iusto?
+            Provident unde assumenda hic.</div>
+        <div style="display: flex; align-items: center;">
+            <iconify-icon icon="fluent:emoji-add-16-regular"></iconify-icon>
+            <div style="margin: 0px 7px;">•</div>
+            <a href="" style="font-size: 0.8rem;">Replly</a>
+        </div>
+    </div>
+    <script>
+        function AttachmentInput() {
+            // Membuat elemen Attachments
+            var attachmentDiv = document.createElement('div');
+            attachmentDiv.className = 'Attachments';
+
+            // Membuat elemen gambar
+            var imgDiv = document.createElement('input');
+            imgDiv.type = 'file';
+            imgDiv.className = 'img';
+            attachmentDiv.appendChild(imgDiv);
+
+            // Membuat elemen keterangan file
+            var textDiv = document.createElement('div');
+            textDiv.style.marginLeft = '10px';
+
+            // Menambahkan elemen teks nama file
+            var fileNameDiv = document.createElement('input');
+            fileNameDiv.type = 'text';
+            fileNameDiv.style.fontSize = '0.9rem';
+            textDiv.appendChild(fileNameDiv);
+
+            // Membuat tombol melalui JavaScript
+            var button = document.createElement('button');
+            button.textContent = 'Upload';
+            textDiv.appendChild(button);
+
+            var formattedTime;
+
+            // Fungsi untuk menampilkan waktu
+            function showTime() {
+                var timeDisplay = document.getElementById('timeDisplay');
+                var currentTime = new Date();
+                var hours = currentTime.getHours();
+                var minutes = currentTime.getMinutes();
+                var seconds = currentTime.getSeconds();
+                formattedTime = padZero(hours) + ':' + padZero(minutes) + ':' + padZero(seconds);
+            }
+
+            // Fungsi untuk menambahkan nol di depan angka satu digit
+            function padZero(number) {
+                return (number < 10) ? '0' + number : number;
+            }
+
+            // Menambahkan pendengar acara klik ke tombol baru
+            button.addEventListener('click', function () {
+                showTime();
+                addAttachment(fileNameDiv.value, 'url placeholder', formattedTime);
+                attachmentDiv.remove();
+            });
+
+            // Menambahkan elemen ikon komentar, sampah, dan pena
+            var iconDiv = document.createElement('div');
+            var icons = ['octicon:comment-16', 'bi:trash', 'uil:pen'];
+            icons.forEach(icon => {
+                var iconifyIcon = document.createElement('iconify-icon');
+                iconifyIcon.className = 'icon';
+                iconifyIcon.setAttribute('icon', icon);
+                iconDiv.appendChild(iconifyIcon);
+            });
+            textDiv.appendChild(iconDiv);
+
+            // Menambahkan elemen teks ke elemen Attachments
+            attachmentDiv.appendChild(textDiv);
+
+            // Menambahkan elemen Attachments ke dalam elemen target
+            var targetElement = document.getElementById('attachments');
+            targetElement.appendChild(attachmentDiv);
+        }
+
+        function addAttachment(fileName, imageUrl, addedInfo) {
+            // Membuat elemen Attachments
+            var attachmentDiv = document.createElement('div');
+            attachmentDiv.className = 'Attachments';
+
+            // Membuat elemen gambar
+            var imgDiv = document.createElement('div');
+            imgDiv.className = 'img';
+            imgDiv.style.backgroundImage = 'url(' + imageUrl + ')';
+            attachmentDiv.appendChild(imgDiv);
+
+            // Membuat elemen keterangan file
+            var textDiv = document.createElement('div');
+            textDiv.style.marginLeft = '10px';
+
+            // Menambahkan elemen teks nama file
+            var fileNameDiv = document.createElement('div');
+            fileNameDiv.style.fontSize = '0.9rem';
+            fileNameDiv.textContent = fileName;
+            textDiv.appendChild(fileNameDiv);
+
+            // Menambahkan elemen teks informasi tambahan
+            var addedInfoDiv = document.createElement('div');
+            addedInfoDiv.style.color = '#8e8e8e';
+            addedInfoDiv.style.fontSize = '0.8rem';
+            addedInfoDiv.textContent = addedInfo;
+            textDiv.appendChild(addedInfoDiv);
+
+            // Menambahkan elemen ikon komentar, sampah, dan pena
+            var iconDiv = document.createElement('div');
+            var icons = ['octicon:comment-16', 'bi:trash', 'uil:pen'];
+            icons.forEach(icon => {
+                var iconifyIcon = document.createElement('iconify-icon');
+                iconifyIcon.className = 'icon';
+                iconifyIcon.setAttribute('icon', icon);
+                iconDiv.appendChild(iconifyIcon);
+            });
+            textDiv.appendChild(iconDiv);
+
+            // Menambahkan elemen teks ke elemen Attachments
+            attachmentDiv.appendChild(textDiv);
+
+            // Menambahkan elemen Attachments ke dalam elemen target
+            document.getElementById('attachments').appendChild(attachmentDiv);
+        }
+    </script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+
+</html>

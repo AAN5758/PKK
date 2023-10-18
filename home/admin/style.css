@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+    margin: 0 20px;
+}
+
+nav {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.menu:hover {
+    background-color: rgb(216, 216, 216);
+    color: black;
+    padding: 7px 10px;
+    animation-duration: 400ms;
+    border-radius: 1rem;
+}
+
+.menu {
+    padding: 7px 10px;
+    border-radius: 1rem;
+}
+
+.img {
+    width: 65px;
+    height: 65px;
+    background: red;
+    border-radius: 0.5rem;
+    background-position: center;
+    background-size: cover;
+}
+
+.Attachments {
+    margin: 20px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.bg {
+
+    border-radius: 0.8rem;
+    padding: 20px;
+    margin: 15px 0px;
+    border-color: rgb(230, 230, 230);
+    border-style: solid;
+    border-width: 1px;
+}
+
+input {
+    background-color: rgb(221, 220, 220);
+    border: transparent;
+    padding: 10px 20px;
+    width: 80%;
+    margin-left: 5px;
+    border-radius: 1rem;
+}
+
+.icon {
+    margin: 9px 4px;
+}
+
+.profile {
+    background-image: url(user1.webp);
+    background-position: center;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    /* background: red  */
+}
+.profile {
+    background-image: url(user1.webp);
+    background-position: center;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    padding: 2px;
+    margin: 2px;
+    /* background: red  */
+}
+.profile2 {
+    background-image: url(user2.jpeg);
+    background-position: center;
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    padding: 2px;
+    margin: 2px;
+    /* background: red  */
+}
